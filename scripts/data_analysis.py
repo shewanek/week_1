@@ -49,6 +49,11 @@ class FinancialNewsEDA:
     def count_articles_per_publisher(self):
         return self.data['publisher'].value_counts()
     
+
+    def analyze_publication_dates(self):
+        self.data['publication_date'] = self.data['date'].dt.date
+        return self.data['publication_date'].value_counts()
+    
     def plot_article_statistics(self):
         # Get data from the EDA functions
         self.get_article_length()
@@ -71,8 +76,39 @@ class FinancialNewsEDA:
 
         plt.tight_layout()
         plt.show()
+        
 
 
+    def sentiment_analysis(self):
+        nltk.download('vader_lexicon')
+        sia = SentimentIntensityAnalyzer()
+        self.data['sentiment'] = self.data['headline'].apply(lambda x: sia.polarity_scores(x)['compound'])
+        return self.data['sentiment'].describe()
     
+
+    def plot_sentiment_distribution(self):
+        sns.histplot(self.data['sentiment'], kde=True)
+        plt.title('Sentiment Distribution')
+        plt.xlabel('Sentiment Score')
+        plt.ylabel('Frequency')
+        plt.show()
+
+    def time_series_analysis(self):
+        self.data['publication_hour'] = self.data['date'].dt.hour
+        return self.data['publication_hour'].value_counts()
+    
+    def plot_publication_frequency(self):
+        publication_frequency = self.data['date'].value_counts().sort_index()
+        plt.figure(figsize=(14, 6))
+        plt.plot(publication_frequency)
+        plt.title('Publication Frequency Over Time')
+        plt.xlabel('Date')
+        plt.ylabel('Number of Articles')
+        plt.show()
+
+
+    def analyze_publishers(self):
+        publisher_analysis = self.data.groupby('publisher').size().reset_index(name='article_count')
+        return publisher_analysis.sort_values(by='article_count', ascending=False)
 
 
