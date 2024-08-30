@@ -60,6 +60,9 @@ Ensure you have Python 3.8 or later installed. Additionally, you'll need to inst
    ```
 
 
+
+
+
 ### CI/CD Setup
 
 This project uses GitHub Actions for Continuous Integration (CI). The workflow is defined in `.github/workflows/unittests.yml` and includes:
@@ -78,6 +81,7 @@ This project uses GitHub Actions for Continuous Integration (CI). The workflow i
   - Committed and pushed work with descriptive commit messages.
 - **Key KPIs**:
   - Dev environment setup and relevant skills demonstrated.
+
 
 
 
