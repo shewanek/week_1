@@ -42,4 +42,37 @@ class FinancialNewsEDA:
         self.data['date'] = pd.to_datetime(self.data['date'], format='ISO8601')
         
 
+    def get_article_length(self):
+        self.data['headline_length'] = self.data['headline'].apply(len)
+        return self.data['headline_length'].describe()
+
+    def count_articles_per_publisher(self):
+        return self.data['publisher'].value_counts()
+    
+    def plot_article_statistics(self):
+        # Get data from the EDA functions
+        self.get_article_length()
+        articles_per_publisher = self.count_articles_per_publisher()
+        
+        # Plotting the statistics
+        plt.figure(figsize=(12, 6))
+
+        plt.subplot(1, 2, 1)
+        sns.histplot(self.data['headline_length'], bins=20, kde=True)
+        plt.title('Distribution of Headline Lengths')
+        plt.xlabel('Headline Length')
+        plt.ylabel('Frequency')
+
+        plt.subplot(1, 2, 2)
+        articles_per_publisher.plot(kind='bar')
+        plt.title('Number of Articles per Publisher')
+        plt.xlabel('Publisher')
+        plt.ylabel('Number of Articles')
+
+        plt.tight_layout()
+        plt.show()
+
+
+    
+
 
