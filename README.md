@@ -60,7 +60,19 @@ Ensure you have Python 3.8 or later installed. Additionally, you'll need to inst
    ```
 
 
+### Running the Project
 
+1. **Perform Exploratory Data Analysis (EDA)**:
+   - Navigate to the `notebooks/` directory and run the Jupyter notebooks to explore the dataset.
+
+2. **Run the Sentiment Analysis**:
+   - Use the scripts in the `src/` directory to perform sentiment analysis on the financial news headlines.
+
+3. **Execute Unit Tests**:
+   - Run unit tests using GitHub Actions to ensure code quality.
+
+4. **Run the Full Pipeline**:
+   - Use the `main.py` script to execute the complete analysis pipeline.
 
 
 ### CI/CD Setup
@@ -83,5 +95,28 @@ This project uses GitHub Actions for Continuous Integration (CI). The workflow i
   - Dev environment setup and relevant skills demonstrated.
 
 
+
+### Task 2: Quantitative Analysis using PyNance and TA-Lib
+
+- **Objective**: Apply technical indicators using TA-Lib and analyze financial data.
+- **Deliverables**:
+  - A new branch `task-2` with all necessary code and documentation.
+  - Detailed visualizations of the financial data.
+- **Key KPIs**:
+  - Accuracy and completeness of data analysis.
+
+### Task 3: Correlation between News and Stock Movement
+
+- **Objective**: Align financial news and stock data by dates and conduct correlation analysis.
+- **Deliverables**:
+  - A new branch `task-3` with sentiment analysis and correlation analysis.
+  - Final report with actionable insights based on correlation analysis.
+- **Key KPIs**:
+  - Accuracy in sentiment analysis and strength of correlations discovered.
+
+## Reports and Documentation
+
+- **Interim Report**: Covers progress up to Task 2. It includes the initial findings from the exploratory data analysis and the first round of sentiment analysis.
+- **Final Report**: A comprehensive report that includes all tasks, final insights, and recommendations for using sentiment analysis as a predictive tool for stock market trends.
 
 

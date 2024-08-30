@@ -33,4 +33,13 @@ class FinancialNewsEDA:
         print(descriptive_stats)
 
 
+    def clean_data(self):
+        # Drop unnecessary columns
+        self.data.drop(columns=['Unnamed: 0'], inplace=True)
+        # Handle missing values if needed
+        self.data.dropna(inplace=True)
+        # Convert date column to datetime
+        self.data['date'] = pd.to_datetime(self.data['date'], format='ISO8601')
+        
+
 
