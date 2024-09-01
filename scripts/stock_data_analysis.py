@@ -28,3 +28,23 @@ class stockeda:
         self.data['Date'] = pd.to_datetime(self.data['Date']) # Convert the 'Date' column to datetime
         
         return self.data  # return the expected data
+    
+    def data_descriptive(self):
+        # Check for missing values
+        missing_values = self.data.isnull().sum()
+        print("Missing values:")
+        print(missing_values)
+
+        # Check for duplicates
+        duplicates = self.data.duplicated().sum()
+        print("\n\n Number of duplicates:", duplicates)
+
+        # Check data types
+        data_types = self.data.dtypes
+        print("\n\n Data types:")
+        print(data_types)
+
+        # Descriptive statistics
+        descriptive_stats = self.data.describe(include='all')
+        print("\n\n Descriptive Statistics:")
+        print(descriptive_stats)
