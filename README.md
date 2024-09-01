@@ -95,6 +95,15 @@ This project uses GitHub Actions for Continuous Integration (CI). The workflow i
   - Dev environment setup and relevant skills demonstrated.
 
 
+### Task 2: Quantitative Analysis using PyNance and TA-Lib
+
+- **Objective**: Apply technical indicators using TA-Lib and analyze financial data.
+- **Deliverables**:
+  - A new branch `task-2` with all necessary code and documentation.
+  - Detailed visualizations of the financial data.
+- **Key KPIs**:
+  - Accuracy and completeness of data analysis.
+
 
 
 
