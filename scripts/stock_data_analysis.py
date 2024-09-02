@@ -48,3 +48,4 @@ class stockeda:
         descriptive_stats = self.data.describe(include='all')
         print("\n\n Descriptive Statistics:")
         print(descriptive_stats)
+
