@@ -46,7 +46,7 @@ class Corr_analysis:
     
     def plot_correlation(self, correlation_results):
         # Plot the correlation results
-        plt.figure(figsize=(10, 6))
+        plt.figure(figsize=(12, 6))
         sns.barplot(x=correlation_results.index, y=correlation_results.values, palette='coolwarm')
         plt.title('Correlation between Sentiment and Stock Returns')
         plt.xlabel('Stock Symbol')
@@ -56,7 +56,7 @@ class Corr_analysis:
 
     def scatter_plot(self):
         # Scatter plot of sentiment scores vs. daily stock returns
-        plt.figure(figsize=(10, 6))
+        plt.figure(figsize=(12, 6))
         sns.scatterplot(x='sentiment', y='Daily Returns', hue='stock_symbol', data=self.merged_data, palette='deep')
         plt.title('Sentiment Scores vs. Daily Stock Returns')
         plt.xlabel('Sentiment Scores')
@@ -64,3 +64,18 @@ class Corr_analysis:
         plt.axhline(0, color='gray', linestyle='--')
         plt.axvline(0, color='gray', linestyle='--')
         plt.show()
+
+    def scatter_plot_each(self):
+        # Generate a scatter plot for each stock symbol
+        stock_symbols = self.merged_data['stock_symbol'].unique()
+        
+        for symbol in stock_symbols:
+            plt.figure(figsize=(12, 6))
+            symbol_data = self.merged_data[self.merged_data['stock_symbol'] == symbol]
+            sns.scatterplot(x='sentiment', y='Daily Returns', data=symbol_data, palette='deep')
+            plt.title(f'Sentiment Scores vs. Daily Stock Returns for {symbol}')
+            plt.xlabel('Sentiment Scores')
+            plt.ylabel('Daily Stock Returns')
+            plt.axhline(0, color='gray', linestyle='--')
+            plt.axvline(0, color='gray', linestyle='--')
+            plt.show()
