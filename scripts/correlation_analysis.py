@@ -37,4 +37,30 @@ class Corr_analysis:
 
         return self.merged_data
 
+    def calculate_correlation(self):
+        # Calculate Pearson correlation coefficient
+        correlation_results = self.merged_data.groupby('stock_symbol').apply(
+            lambda df: pearsonr(df['sentiment'], df['Daily Returns'])[0]
+        )
+        return correlation_results
     
+    def plot_correlation(self, correlation_results):
+        # Plot the correlation results
+        plt.figure(figsize=(10, 6))
+        sns.barplot(x=correlation_results.index, y=correlation_results.values, palette='coolwarm')
+        plt.title('Correlation between Sentiment and Stock Returns')
+        plt.xlabel('Stock Symbol')
+        plt.ylabel('Pearson Correlation Coefficient')
+        plt.axhline(0, color='gray', linestyle='--')
+        plt.show()
+
+    def scatter_plot(self):
+        # Scatter plot of sentiment scores vs. daily stock returns
+        plt.figure(figsize=(10, 6))
+        sns.scatterplot(x='sentiment', y='Daily Returns', hue='stock_symbol', data=self.merged_data, palette='deep')
+        plt.title('Sentiment Scores vs. Daily Stock Returns')
+        plt.xlabel('Sentiment Scores')
+        plt.ylabel('Daily Stock Returns')
+        plt.axhline(0, color='gray', linestyle='--')
+        plt.axvline(0, color='gray', linestyle='--')
+        plt.show()
