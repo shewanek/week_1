@@ -22,3 +22,5 @@ The `data_analysis.py` script provides a structured approach to analyzing a fina
 Make sure to install the required packages before running the script:
 ```bash
 pip install pandas numpy matplotlib seaborn nltk
+
+## Task 2

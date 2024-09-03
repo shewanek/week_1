@@ -128,3 +128,10 @@ class stockeda:
             plt.legend()
             plt.grid(True)
             plt.show()
+
+    def save_to_csv(self, output_path="../data/processed_stock_data.csv"):
+        # Ensure the data directory exists
+        os.makedirs(os.path.dirname(output_path), exist_ok=True)
+        # Save the dataframe to a CSV file
+        self.data.to_csv(output_path, index=False)
+        print(f"Data saved to {output_path}")
