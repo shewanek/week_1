@@ -1,6 +1,6 @@
-```markdown
+
 # Exploratory Data Analysis Notebook
-```
+
 ## Overview
 The `EDA.ipynb` notebook is designed to perform an in-depth exploratory data analysis (EDA) on a financial news dataset. The notebook leverages the `FinancialNewsAnalysis` class from the `data_analysis.py` script to conduct various analyses, including basic statistics, sentiment analysis, and time series analysis.
 
